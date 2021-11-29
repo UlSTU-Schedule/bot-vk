@@ -13,3 +13,12 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# Golang IDE
+.idea
+
+# Environment variables
+.env
+
+# Test files
+cmd/test
