@@ -1,0 +1,47 @@
+commands:
+  whole:
+    start:
+      - "."
+      - "/"
+    go_to_schedule_menu:
+      - "1"
+    change_group:
+      - "2"
+    get_schedule_for_day:
+      - "3"
+      - "4"
+      - "сегодня"
+      - "завтра"
+    get_schedule_for_week:
+      - "5"
+      - "6"
+    back_to_start_menu:
+      - "7"
+  partial:
+    start:
+      - "начать"
+      - "start"
+      - "привет"
+      - "здравств"
+      - "помощь"
+      - "help"
+      - "команды"
+    go_to_schedule_menu:
+      - "расписани"
+      - "недел"
+    get_schedule_for_week:
+      - "текущая неделя"
+      - "следующая неделя"
+    change_group:
+      - "изменить"
+      - "поменять"
+    back_to_start_menu:
+      - "назад"
+      - "вернуться"
+    express_gratitude:
+      - "спасиб"
+      - "сенкс"
+      - "благодар"
+      - "спс"
+      - "thanks"
+      - "хорош"
