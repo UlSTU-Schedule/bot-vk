@@ -8,7 +8,7 @@ require (
 	github.com/jmoiron/sqlx v1.3.4
 	github.com/mailru/easyjson v0.7.7
 	github.com/spf13/viper v1.10.1
-	github.com/ulstu-schedule/parser v0.9.3
+	github.com/ulstu-schedule/parser v0.9.5
 )
 
 require (
