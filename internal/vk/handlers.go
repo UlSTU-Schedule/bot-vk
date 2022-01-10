@@ -129,6 +129,8 @@ func (b *Bot) handleGetScheduleForDayMsg(userID int, userMsg string) error {
 	}
 
 	if student != nil {
+		_ = b.sendMessage(userID, "Генерирую расписание &#9203;", "", b.getScheduleMenuKeyboard())
+
 		daySchedule, err := schedule.GetDayGroupSchedule(student.GroupName, userMsg)
 		if err != nil {
 			groupScheduleJSON, err := b.scheduleStore.GroupSchedule().GetSchedule(student.GroupName)
