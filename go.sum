@@ -159,6 +159,8 @@ github.com/ulstu-schedule/parser v0.9.5 h1:m979Tt6hLnGlY6aSmamuzmL/XLlQX7XsFG3Dx
 github.com/ulstu-schedule/parser v0.9.5/go.mod h1:hIqD7xLXduFqmZLmCI/tofgGtjcHEGRsN4qbbBXcbzk=
 github.com/ulstu-schedule/parser v0.9.6 h1:AEX0wux17mzJMpk7IiK9XcMRyea+RKW7DPS1K7N4PgY=
 github.com/ulstu-schedule/parser v0.9.6/go.mod h1:hIqD7xLXduFqmZLmCI/tofgGtjcHEGRsN4qbbBXcbzk=
+github.com/ulstu-schedule/parser v0.9.8 h1:Ssanp+UGWlAOcBMHH2Ey1KgcegnE/uaUs+Z//1c6vzw=
+github.com/ulstu-schedule/parser v0.9.8/go.mod h1:hIqD7xLXduFqmZLmCI/tofgGtjcHEGRsN4qbbBXcbzk=
 github.com/zenazn/goji v0.9.0/go.mod h1:7S9M489iMyHBNxwZnk9/EHS098H4/F6TATF2mIxtB1Q=
 go.uber.org/atomic v1.3.2/go.mod h1:gD2HeocX3+yG+ygLZcrzQJaqmWj9AIm7n08wl/qW/PE=
 go.uber.org/atomic v1.4.0/go.mod h1:gD2HeocX3+yG+ygLZcrzQJaqmWj9AIm7n08wl/qW/PE=
