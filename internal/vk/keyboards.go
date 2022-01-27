@@ -27,7 +27,6 @@ func (b *Bot) getScheduleMenuKeyboard() *object.MessagesKeyboard {
 	k.AddTextButton("Следующая неделя", "", "positive")
 
 	k.AddRow()
-	k.AddTextButton("Сессия", "", "negative")
 	k.AddTextButton("Назад", "", "primary")
 
 	return k

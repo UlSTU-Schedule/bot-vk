@@ -95,9 +95,6 @@ func (b *Bot) handleTextMsg(userMsg string, userID int) error {
 	case contains(b.commands.Whole.Start, userMsgLowered) ||
 		containsPartial(b.commands.Partial.Start, userMsgLowered):
 		return b.handleStartMsg(userID)
-	case contains(b.commands.Whole.Session, userMsgLowered) ||
-		containsPartial(b.commands.Partial.Session, userMsgLowered):
-		return b.handleSessionMsg(userID)
 	case containsPartial(b.commands.Partial.ExpressGratitude, userMsgLowered):
 		return b.handleExpressGratitudeMsg(userID)
 	default:
@@ -257,10 +254,6 @@ func (b *Bot) handleExpressGratitudeMsg(userID int) error {
 	} else {
 		return b.sendMessage(userID, b.messages.ThanksNotSubscribed, "", b.getSubscribingInlineKeyboard())
 	}
-}
-
-func (b *Bot) handleSessionMsg(userID int) error {
-	return b.sendMessage(userID, b.messages.Session, "", nil)
 }
 
 func (b *Bot) handleUnknownMsg(userID int, userMsg string) error {

@@ -15,10 +15,8 @@ commands:
     get_schedule_for_week:
       - "5"
       - "6"
-    session:
-      - "7"
     back_to_start_menu:
-      - "8"
+      - "7"
   partial:
     start:
       - "начать"
@@ -37,10 +35,6 @@ commands:
     change_group:
       - "изменить"
       - "поменять"
-    session:
-      - "сесси"
-      - "зачёт"
-      - "экзамен"
     back_to_start_menu:
       - "назад"
       - "вернуться"
