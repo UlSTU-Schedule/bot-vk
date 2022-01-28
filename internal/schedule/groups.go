@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	KEIGroupPattern   = regexp.MustCompile(`^[А-Я]+[сдо]+-\d+$`)
+	KEIGroupPattern   = regexp.MustCompile(`^[А-Я]+[до]+-\d+$`)
 	groupCharsPattern = regexp.MustCompile(`(?i)[а-я\d-]+`)
 )
 
