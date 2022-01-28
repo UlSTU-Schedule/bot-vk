@@ -2,6 +2,7 @@ package vk
 
 import (
 	"context"
+	"database/sql"
 	"fmt"
 	"github.com/SevereCloud/vksdk/v2/events"
 	"github.com/ulstu-schedule/bot-vk/internal/schedule"
@@ -38,6 +39,11 @@ func (b *Bot) handleError(err error, obj events.MessageNewObject) {
 	log.Printf("[VK] ERROR: %s", err)
 
 	_ = b.markAsImportant(userID)
+
+	if err == sql.ErrNoRows {
+		_ = b.sendMessage(userID, b.messages.ScheduleIsUnavailable, "", nil)
+		return
+	}
 
 	switch err.(type) {
 	case *types.UnavailableScheduleError, *types.IncorrectLinkError:

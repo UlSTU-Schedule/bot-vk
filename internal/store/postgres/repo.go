@@ -29,6 +29,7 @@ func (r *StudentRepository) GetAllStudents() ([]model.Student, error) {
 	if err != nil {
 		return nil, err
 	}
+
 	return students, nil
 }
 
@@ -80,13 +81,8 @@ func (r *GroupScheduleRepository) GetSchedule(groupName string) (*model.GroupSch
 	schedule := model.GroupSchedule{}
 	query := fmt.Sprintf("SELECT * FROM %s WHERE group_name=$1", groupScheduleRepoName)
 	err := r.store.db.Get(&schedule, query, groupName)
-	if err != nil && err != sql.ErrNoRows {
+	if err != nil {
 		return nil, err
-	}
-
-	// if the group schedule is not in the database
-	if schedule.Name == "" {
-		return nil, nil
 	}
 
 	return &schedule, nil
@@ -99,6 +95,7 @@ func (r *GroupScheduleRepository) GetGroups() ([]string, error) {
 	if err != nil {
 		return nil, err
 	}
+
 	return groups, nil
 }
 
