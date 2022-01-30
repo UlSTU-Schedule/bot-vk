@@ -136,14 +136,22 @@ func (b *Bot) handleGetScheduleForDayMsg(userID int, userMsg string) error {
 
 		daySchedule, err := schedule.GetDayGroupSchedule(student.GroupName, userMsg)
 		if err != nil {
-			groupScheduleJSON, err := b.scheduleStore.GroupSchedule().GetSchedule(student.GroupName)
+			scheduleDB, err := b.scheduleStore.GroupSchedule().GetSchedule(student.GroupName)
 			if err != nil {
 				return err
 			}
 
-			updateTimeFmt := groupScheduleJSON.UpdateTime.Format("15:04 02.01.2006")
+			var updateTimeFmt string
+			switch schedule.GetSchoolWeekIdx(userMsg) {
+			case 0:
+				updateTimeFmt = scheduleDB.FirstWeekUpdateTime.Format("15:04 02.01.2006")
+				break
+			case 1:
+				updateTimeFmt = scheduleDB.SecondWeekUpdateTime.Format("15:04 02.01.2006")
+				break
+			}
 
-			daySchedule, err = schedule.ParseDayGroupSchedule(groupScheduleJSON.Info, updateTimeFmt, student.GroupName, userMsg)
+			daySchedule, err = schedule.ParseDayGroupSchedule(scheduleDB.FullSchedule, updateTimeFmt, student.GroupName, userMsg)
 			if err != nil {
 				return err
 			}
@@ -192,20 +200,33 @@ func (b *Bot) handleGetScheduleForWeekMsg(userID int, userMsg string) error {
 func (b *Bot) getWeeklySchedule(userID int, userGroup, userMsg string) (string, string, error) {
 	caption, weekSchedulePath, err := schedule.GetWeekGroupSchedule(userGroup, userMsg)
 	if err != nil {
-		groupScheduleJSON, err := b.scheduleStore.GroupSchedule().GetSchedule(userGroup)
+		scheduleDB, err := b.scheduleStore.GroupSchedule().GetSchedule(userGroup)
 		if err != nil {
 			return "", "", err
 		}
 
-		updateTimeFmt := groupScheduleJSON.UpdateTime.Format("15:04 02.01.2006")
+		var updateTimeFmt string
+		switch schedule.GetSchoolWeekIdx(userMsg) {
+		case 0:
+			updateTimeFmt = scheduleDB.FirstWeekUpdateTime.Format("15:04 02.01.2006")
+			break
+		case 1:
+			updateTimeFmt = scheduleDB.SecondWeekUpdateTime.Format("15:04 02.01.2006")
+			break
+		}
 
-		caption, weekSchedulePath, err = schedule.ParseWeekGroupSchedule(groupScheduleJSON.Info, updateTimeFmt, userGroup, userMsg)
+		caption, weekSchedulePath, err = schedule.ParseWeekGroupSchedule(scheduleDB.FullSchedule, updateTimeFmt, userGroup, userMsg)
 		if err != nil {
 			return "", "", err
 		}
 	}
 	if weekSchedulePath != "" {
-		defer os.Remove(weekSchedulePath)
+		defer func(path string) {
+			err = os.Remove(path)
+			if err != nil {
+				log.Printf("error occured while removing week schedule image: %s", err.Error())
+			}
+		}(weekSchedulePath)
 	}
 
 	if (userMsg == "5" || userMsg == "текущая неделя") && schedule.IsKEIGroup(userGroup) {
