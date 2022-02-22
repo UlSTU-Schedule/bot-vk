@@ -154,8 +154,8 @@ github.com/stretchr/testify v1.7.0 h1:nwc3DEeHmmLAfoZucVR881uASk0Mfjw8xYJ99tb5Cc
 github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/subosito/gotenv v1.2.0 h1:Slr1R9HxAlEKefgq5jn9U+DnETlIUa6HfgEzj0g5d7s=
 github.com/subosito/gotenv v1.2.0/go.mod h1:N0PQaV/YGNqwC0u51sEeR/aUtSLEXKX9iv69rRypqCw=
-github.com/ulstu-schedule/parser v0.9.11 h1:6gbQytv4bhH/Gdu/Ex3ghdPK+vhE1QVtyMO8pdJq5Cw=
-github.com/ulstu-schedule/parser v0.9.11/go.mod h1:hIqD7xLXduFqmZLmCI/tofgGtjcHEGRsN4qbbBXcbzk=
+github.com/ulstu-schedule/parser v0.9.12 h1:yRZc239mQ33BvwoGByD65n1G7QVQZ26pl/fkd11Moas=
+github.com/ulstu-schedule/parser v0.9.12/go.mod h1:hIqD7xLXduFqmZLmCI/tofgGtjcHEGRsN4qbbBXcbzk=
 github.com/vmihailenco/msgpack/v5 v5.3.5 h1:5gO0H1iULLWGhs2H5tbAHIZTV8/cYafcFOr9znI5mJU=
 github.com/vmihailenco/msgpack/v5 v5.3.5/go.mod h1:7xyJ9e+0+9SaZT0Wt1RGleJXzli6Q/V5KbhBonMG9jc=
 github.com/vmihailenco/tagparser/v2 v2.0.0 h1:y09buUbR+b5aycVFQs/g70pqKVZNBmxwAhO7/IwNM9g=
